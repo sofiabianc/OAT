@@ -5,9 +5,9 @@ contract OAT_token{
 	string public symbol = "OAT"; 	  //symbol
 	string public standard = "OAT Token v1.0"; //Version of token 
 	uint256 public totalSupply;
-	// Constructor (sets value for # of tokens we will have)
-	// Set the total number of tokens
-	// Read the total number of tokens
+	// 1. Constructor: (sets value for # of tokens we will have)
+	// 2. Set the total number of tokens
+	// 3. Read the total number of tokens
 	event Transfer(
 		address indexed _from, 
 		address indexed _to, 
@@ -58,9 +58,10 @@ contract OAT_token{
 		return true; 
 	}
 
-	// Delegated Transfer 
+	// *** Delegated Transfer *** 
 
-	// 9/17: Transfer from, approve, allowance.
+		// Require _from has enough tokens
+		// Require allowance is big enough
 
 	// approve
 	function approve(address _spender, uint256 _value) public returns(bool success)
@@ -73,6 +74,23 @@ contract OAT_token{
 	}
 
 	// transfer from
+	function transferFrom(address _from, address _to, uint256 _value public returns(bool success){
+		require(_value <= balanceOf[_from]); 
+		require(_value <= allowance[_from][msg.sender]); 
+		// Return a boolean
+		return true; 
+
+		// Call a Transfer event -- show that transfer happened
+		Transfer(_from, _to, _value); 
+
+		// Change the balance
+		balanceOf[_from] -= _value; 
+		balanceOf[_to] += _value; 
+
+		// Update the allowance
+		allowance[_from][msg.sender] -= _value; 
+
+	}
 
 
 
