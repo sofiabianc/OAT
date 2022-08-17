@@ -54,4 +54,23 @@ contract('OAT_token', function(accounts){
 			assert.equal(balance.toNumber(), 250000, 'deducts the amount from sending account'); 
 		}); 
 	});
+
+	it('approves tokens for delegated transfer', function(){
+		return DappToken.deployed().then(function(instance){
+			tokenInstance = instance; 
+			return tokenInstance.approve.call(accounts[1], 100); 
+		}).then(function(success){
+			assert.equal(success, true, 'it returns true'); 
+			return tokenInstance.approve(account[1], 100, {from: accounts[0]}); 
+		}).then(function(receipt){
+			assert.equal(receipt.logs.length, 1, 'triggers 1 event'); 
+			assert.equal(receipt.logs.[0].event, 'Approval', 'should be "Transfer" event');
+			assert.equal(receipt.logs.[0].args._from, accounts[0], 'logs the account tokens are transfered from');
+			assert.equal(receipt.logs.[0].args._to, accounts[1], 'logs the account tokens transfer to'); 
+			assert.equal(receipt.logs.[0].args._value, 100, 'logs the transfer amount'); 
+			return tokenInstance.allowance(accounts[0], accounts[1]); 
+		}).then(function(allowance){
+			assert.equal(allowance toNumber(), 100, 'stores the allowance delegated for transfer'); 
+		});   
+	}); 
 }); 
