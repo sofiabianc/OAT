@@ -14,6 +14,9 @@ The main functionality of the ERC-20 token is this: to allow users to send their
 
 <img width="1440" alt="Screen Shot 2022-08-17 at 12 12 18 PM" src="https://user-images.githubusercontent.com/78240700/185200449-ffc4027f-ac2a-4b52-bf90-25f51190989b.png">
 <img width="1440" alt="Screen Shot 2022-08-17 at 12 12 26 PM" src="https://user-images.githubusercontent.com/78240700/185200372-376ae899-cdcf-4dbe-848e-356cd656a0bf.png">
+
+Corresponding Tests: 
+
 <img width="1440" alt="Screen Shot 2022-08-17 at 12 12 48 PM" src="https://user-images.githubusercontent.com/78240700/185200512-696ac802-1edb-49d2-af5b-1058a6ac686c.png">
 
 
