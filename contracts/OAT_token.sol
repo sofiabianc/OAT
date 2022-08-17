@@ -15,12 +15,24 @@ contract OAT_token{
 
 	); 
 
+	// approve 
+	event Approval(
+		address indexed _owner, 
+		address indexed _spender, 
+		uint256 _value
+	); 
+
+	// transfer event
+
 
 	mapping(address => unint256)public balanceOf;
-	//balanceOf gives us a reader function that takes 
-	//in the address of the owner and returns an unsigned int 
-	//which is the balance of this particular address. 
-	//Tells us where each token lives
+	// balanceOf gives us a reader function that takes 
+	// in the address of the owner and returns an unsigned int 
+	// which is the balance of this particular address. 
+	// Tells us where each token lives
+
+	// allowance
+	mapping(address => mapping(address => unint256)) public allowance; // account a approving account b; keeps track of all approvals for transfering tokens. 
 
 	function OAT_token(uint256 _initialSupply) public{
 		// store number of tokens that will exist, set to a variable
@@ -45,5 +57,24 @@ contract OAT_token{
 		// Return a boolean
 		return true; 
 	}
+
+	// Delegated Transfer 
+
+	// 9/17: Transfer from, approve, allowance.
+
+	// approve
+	function approve(address _spender, uint256 _value) public returns(bool success)
+		// sets the allowance
+		allowance[msg.sender][_spender] = _value; 
+		// triggers approve event for any successful call 
+		Approval(msg.sender, _spender, _value); 
+
+		return true; 
+	}
+
+	// transfer from
+
+
+
 
 }
