@@ -3,8 +3,10 @@ OAT token smart contracts.
 
 # The ERC-20 Standard OAT token 
 
-The OAT token is the native ERC-20 standard token to the Of All Trades platform which will be expended for a variety of investing education use-cases.
-In time, this token will allows you earn token rewards based on the quality of the content the user posts. This upvoting protocol rewards users being upvoted on a 1:1 basis for posting most valuable content based off of number of upvotes they recieve on their content. 
+The OAT token is the native ERC-20 standard token to the Of All Trades platform which functions as the app's native currency. Of All Trades is an investing education platform where users can upload insightful content and form communities based on their investing experience, style of investing, and personal goals.
+
+In time, the OAT token will allow you earn token rewards based on the quality of the content the user posts. Currently, this upvoting protocol rewards users for upvotes on their content on a 1:1 basis. In other words, users will reieve one OAT token per upvote. A future functionality will expand this rewards system to include additional inputs over time. 
+
 
 The main functionality of the ERC-20 token is this: to allow users to send their OATs to other users. 
 
